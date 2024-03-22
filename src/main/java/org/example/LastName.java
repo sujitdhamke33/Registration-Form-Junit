@@ -3,14 +3,14 @@ package org.example;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class FirstName {
+public class LastName {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the user Name to check :");
         String name = sc.next();
 
-        if(checkfirstname(name)){
+        if(checkLastName(name)){
             System.out.println("name enter is correct " + name);
         }
         else{
@@ -18,7 +18,7 @@ public class FirstName {
         }
 
     }
-    public static boolean checkfirstname(String name){
+    public static boolean checkLastName(String name){
         String regex = "^Cap.{2,}$";
         return Pattern.matches(regex,name);
 

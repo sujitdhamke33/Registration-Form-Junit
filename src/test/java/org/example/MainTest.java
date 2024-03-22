@@ -1,20 +1,19 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FirstNameTest {
+class LastNameTest {
 //FirstName firstName = new FirstName();
     @Test
-    void firstNameHappyTest() {
+    void lastNameHappyTest() {
         String name = "Captain";
-        assertTrue(FirstName.checkfirstname(name));
+        assertTrue(LastName.checkLastName(name));
     }
     @Test
-    void firstNameSadTest() {
+    void lastNameSadTest() {
         String name = "captain";
-        assertFalse(FirstName.checkfirstname(name));
+        assertFalse(LastName.checkLastName(name));
     }
 }
