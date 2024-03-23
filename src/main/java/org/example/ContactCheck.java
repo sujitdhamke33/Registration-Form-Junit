@@ -7,21 +7,19 @@ public class ContactCheck {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("ENTER VALID MOBILE NUMBER :");
-        String number = sc.next();
+        System.out.println("Enter valid 8 digit mimimum password :");
+        String password = sc.next();
 
-        if(validContact(number)){
-            System.out.println("Your enter number is correct " + number);
+        if(passwordCheck(password)){
+            System.out.println("Your enter password is correct " + password);
         }
         else{
-            System.out.println("Entered number is invalid ");
+            System.out.println("Entered password is invalid ");
         }
 
     }
-    public static boolean validContact(String number) {
-        String regex = "[0-9]{2}\\s[0-9]{10}";
-
-        return (Pattern.matches(regex, number));
-
-        }
+    public static boolean passwordCheck(String password){
+        String regex = "^.{8,}$";
+        return (Pattern.matches(regex, password));
+      }
     }

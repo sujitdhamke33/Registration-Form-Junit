@@ -8,12 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class ContactCheckedTest {
     @Test
     void trueContactTest() {
-        String contact = "91 9921834355";
-        assertTrue(ContactCheck.validContact(contact));
+        String password = "sujitdhamke33";
+        assertTrue(ContactCheck.passwordCheck(password));
     }
     @Test
     void falseEmailTest() {
-        String contact = "9921834345";
-        assertFalse(ContactCheck.validContact(contact));
+        assertFalse(ContactCheck.passwordCheck("passwd")); //direct values in the parameters...
     }
 }
