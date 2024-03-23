@@ -8,11 +8,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class Passwordvalidator {
     @Test
     void truepasswordTest() {
-        String password = "Sujitdhamke#33";
-        assertTrue(PasswordCheck.passwordCheck(password));
+        assertTrue(PasswordCheck.passwordAllEmailCheck("abc@yahoo.com"));
+        assertTrue(PasswordCheck.passwordAllEmailCheck("abc.100@yahoo.com"));
+        assertTrue(PasswordCheck.passwordAllEmailCheck("abc@gmail.com.com"));
+
+
     }
     @Test
-    void falsepasswordTest() {
-        assertFalse(PasswordCheck.passwordCheck("sujitdhamke")); //direct values in the parameters...
+   void falsepasswordTest() {
+        assertFalse(PasswordCheck.passwordAllEmailCheck("abc()*@gmail.com"));
+        assertFalse(PasswordCheck.passwordAllEmailCheck(".abc123@.com"));
+        assertFalse(PasswordCheck.passwordAllEmailCheck("abc..2002@gmail.com"));
+
+
     }
 }
