@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ContactCheckedTest {
+class Passwordvalidator {
     @Test
     void trueContactTest() {
         String password = "Sujitdhamke33";
-        assertTrue(ContactCheck.passwordCheck(password));
+        assertTrue(PasswordCheck.passwordCheck(password));
     }
     @Test
     void falseEmailTest() {
-        assertFalse(ContactCheck.passwordCheck("sujitdhamke33")); //direct values in the parameters...
+        assertFalse(PasswordCheck.passwordCheck("sujitdhamke")); //direct values in the parameters...
     }
 }
