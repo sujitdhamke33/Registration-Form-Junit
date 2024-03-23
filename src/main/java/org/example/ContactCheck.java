@@ -7,7 +7,7 @@ public class ContactCheck {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter valid 8 digit mimimum password :");
+        System.out.println("Enter valid 8 digit mimimum password with one Uppercase:");
         String password = sc.next();
 
         if(passwordCheck(password)){
@@ -19,7 +19,7 @@ public class ContactCheck {
 
     }
     public static boolean passwordCheck(String password){
-        String regex = "^.{8,}$";
+        String regex = "^(?=.*[A-Z]).{8,}$"; //?= positive condition that shows there must be one uppercase ignore by regex
         return (Pattern.matches(regex, password));
       }
     }
