@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Passwordvalidator {
     @Test
-    void trueContactTest() {
-        String password = "Sujitdhamke33";
+    void truepasswordTest() {
+        String password = "Sujitdhamke#33";
         assertTrue(PasswordCheck.passwordCheck(password));
     }
     @Test
-    void falseEmailTest() {
+    void falsepasswordTest() {
         assertFalse(PasswordCheck.passwordCheck("sujitdhamke")); //direct values in the parameters...
     }
 }
