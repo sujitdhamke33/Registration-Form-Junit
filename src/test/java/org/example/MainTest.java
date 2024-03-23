@@ -1,18 +1,19 @@
 package org.example;
 
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class EmailCheckedTest {
-//FirstName firstName = new FirstName();
+class ContactCheckedTest {
     @Test
-    void trueEmailTest() {
-        String email = "sujit.dhamke12@gmail.com";
-        assertTrue(EmailChecked.checkEmail(email));
+    void trueContactTest() {
+        String contact = "91 9921834355";
+        assertTrue(ContactCheck.validContact(contact));
     }
     @Test
     void falseEmailTest() {
-        String email = "raj3@gmaildk";
-        assertFalse(EmailChecked.checkEmail(email));
+        String contact = "9921834345";
+        assertFalse(ContactCheck.validContact(contact));
     }
 }
