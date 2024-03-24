@@ -13,7 +13,7 @@ public class PasswordCheck {
         System.out.println("Enter Email id : ");
         String email = sc.next();
         sc.nextLine();
-        System.out.println("Enter phone number along with country code ");
+        System.out.println("Enter phone number along with country code Please ");
         String number = sc.nextLine();
         System.out.println("enter the password ");
         String password = sc.next();
