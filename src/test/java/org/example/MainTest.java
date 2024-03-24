@@ -8,15 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class Passwordvalidator {
     @Test
     public void checkfirstnametrue() {
-        assertTrue(PasswordCheck.isvalidname("Captain"));
-        assertFalse(PasswordCheck.isvalidname("Sujit"));
+        assertTrue(PasswordCheck.firstNamevalid("Captain"));
+        assertFalse(PasswordCheck.firstNamevalid("Sujit"));
 
     }
 
     @Test
     public void checklastnamefalse() {
-        assertTrue(PasswordCheck.isvalidname("Captain"));
-        assertFalse(PasswordCheck.isvalidname("Sujit"));
+        assertTrue(PasswordCheck.lastNamevalid("Captain"));
+        assertFalse(PasswordCheck.lastNamevalid("Sujit"));
     }
 
     @Test
