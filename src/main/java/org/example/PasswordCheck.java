@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public class PasswordCheck {
@@ -32,6 +33,12 @@ public class PasswordCheck {
             super(password);
         }
     }
+
+    static Predicate<String> firstNamevalid=n -> n.matches("^Cap.{2,}$");
+    static Predicate<String> lastNamevalid=n -> n.matches("^Cap.{2,}$");
+    static Predicate<String> validemail=n -> n.matches("^[a-zA-Z0-9]+[/.]?[a-zA-z0-9]*[@][a-z]{2,5}[/.][a-z]{2,3}[/.]?[a-z]*$");
+    static Predicate<String> validnumber=n -> n.matches("[0-9]{2}\\s[0-9]{10}");
+    static Predicate<String> validpassword=n -> n.matches("^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-z0-9]).{8,}$");
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the First name of user :");
@@ -50,7 +57,7 @@ public class PasswordCheck {
         String password = sc.next();
 
         try {
-            if (firstNamevalid(name)) {
+            if (firstNamevalid.test(name)) {
                 System.out.println(name + " Name enter is perfect ");
             } else {
                 throw new FirstNameException("Enter name " + name + " is invalid so showing custom exception");
@@ -60,7 +67,7 @@ public class PasswordCheck {
         }
 
         try {
-            if (lastNamevalid(lastname)) {
+            if (lastNamevalid.test(lastname)) {
                 System.out.println(lastname + " Name enter is perfect ");
             } else {
                 throw new LastNameException("Enter name " + lastname + " is invalid so showing custom exception");
@@ -69,58 +76,55 @@ public class PasswordCheck {
             System.out.println(e.getMessage());
         }
 
-        try{
-            if(validemail(email)){
+        try {
+            if (validemail.test(email)) {
                 System.out.println("You entered email is correct pattern");
-            }else{
+            } else {
                 throw new validEmailException("You have entered the wrong email so please check the pattern again");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        try{
-            if(validnumber(number)){
+        try {
+            if (validnumber.test(number)) {
                 System.out.println("Your entered number is valid...");
-            }else{
+            } else {
                 throw new contactNumberException("You entered number is wrong please check it again ");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        try{
-            if(validpassword(password)){
+        try {
+            if (validpassword.test(password)) {
                 System.out.println("Your entered password is valid...");
-            }else{
+            } else {
                 throw new contactNumberException("You entered password is wrong please check it again ");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+    public static boolean checkAllEmails(String[] validEmail)
+    {
+        String regexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        for(String emails : validEmail)
+        {
+            if(!Pattern.matches(regexPattern, emails))
+            {
+                return false;
+            }
+        }
+        return true;
 
     }
-
-    public static boolean firstNamevalid(String name) {
-        String regex = "^Cap.{2,}$";
-        return Pattern.matches(regex, name);
+    public static boolean passAlltestCases(String name,String lastName,String email,String number,String password)
+    {
+        if(firstNamevalid.test(name) && lastNamevalid.test(lastName) && validemail.test(email) && validnumber.test(number) && validpassword.test(password)) {
+            return true;
+        }
+        return false;
+    }
     }
 
-    public static boolean lastNamevalid(String name) {
-        String regex = "^Cap.{2,}$";
-        return Pattern.matches(regex, name);
-    }
-
-    public static boolean validemail(String email){
-        String regex = "^[a-zA-Z0-9]+[/.]?[a-zA-z0-9]*[@][a-z]{2,5}[/.][a-z]{2,3}[/.]?[a-z]*$";
-        return Pattern.matches(regex,email);
-    }
-    public static boolean validnumber(String number){
-        String regex = "[0-9]{2}\\s[0-9]{10}";
-        return Pattern.matches(regex, number);
-    }
-    public static boolean validpassword(String password){
-        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-z0-9]).{8,}$";
-        return Pattern.matches(regex,password);
-    }
-}
